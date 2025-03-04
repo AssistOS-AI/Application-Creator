@@ -15,6 +15,36 @@
       "name": "application-creator-sidebar",
       "presenterClassName": "ApplicationCreatorSidebar",
       "type": "components"
+    },
+    {
+      "name": "application-creator-menu",
+      "presenterClassName": "ApplicationCreatorMenu",
+      "type": "pages"
+    },
+    {
+      "name": "application-creator-pages",
+      "presenterClassName": "ApplicationCreatorPages",
+      "type": "pages"
+    },
+    {
+      "name": "application-creator-preview",
+      "presenterClassName": "ApplicationCreatorPreview",
+      "type": "pages"
+    },
+    {
+      "name": "application-creator-settings",
+      "presenterClassName": "ApplicationCreatorSettings",
+      "type": "pages"
+    },
+    {
+      "name": "application-edit-page-modal",
+      "presenterClassName": "ApplicationEditPageModal",
+      "type": "modals"
+    },
+    {
+      "name": "application-edit-menu-modal",
+      "presenterClassName": "ApplicationEditMenuModal",
+      "type": "modals"
     }
   ],
   "services": [
