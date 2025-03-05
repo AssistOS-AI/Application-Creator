@@ -325,7 +325,7 @@ const getDropDownMenu= function(id){
               <svg>...</svg>
               Edit
             </a>
-            <a href="#" class="dropdown-item" data-local-action="deletePage ${id}">
+            <a href="#" class="dropdown-item" data-local-action="deleteMenuItem ${id}">
               <svg>...</svg>
               Delete
             </a>
@@ -380,5 +380,25 @@ export class ApplicationCreatorMenu {
         };
 
         document.addEventListener('click', clickHandler);
+    }
+    async openEditModal(eventTarget,id){
+        const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-menu-modal", {
+            presenter: "application-edit-menu-modal",
+            id
+        }, true)
+        if (shouldInvalidate) {
+            this.invalidate();
+        }
+    }
+    async openAddModal(evenTarget) {
+        const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-menu-modal", {
+            presenter: "application-edit-menu-modal",
+        }, true)
+        if (shouldInvalidate) {
+            this.invalidate();
+        }
+    }
+    async deleteMenuItem(eventTarget,id){
+        this.invalidate();
     }
 }

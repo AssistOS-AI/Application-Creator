@@ -1,0 +1,41 @@
+<div class="modal-container">
+    <div class="modal-header">
+        <div class="modal-left-header">
+            <span>$$modalName</span>
+        </div>
+        <div class="modal-right-header">
+            <button class="button-secondary" data-local-action="closeModal">X</button>
+        </div>
+    </div>
+    <div class="modal-content">
+        <form class="application-form">
+            <div class="application-form-content">
+                <div class="application-form-item">
+                    <label for="page-name">Page Name</label>
+                    <input type="text" id="page-name" name="page-name" value="$$pageName" readonly>
+                </div>
+                <div class="application-form-item">
+                    <label for="menu-item-name">Menu Item name</label>
+                    <input type="text" id="menu-item-name" name="menu-item-name" value="$$name">
+                </div>
+                <div class="application-form-item">
+                    <label for="widget-name">Widget Name</label>
+                    <input type="text" id="widget-name" name="widget-name" value="$$widgetName">
+                </div>
+            </div>
+            <div class="application-form-footer">
+                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="modal-footer-left">
+
+        </div>
+        <div class="modal-footer-right">
+
+        </div>
+    </div>
+</div>
+

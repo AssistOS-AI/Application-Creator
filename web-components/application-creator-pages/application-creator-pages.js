@@ -123,17 +123,16 @@ export class ApplicationCreatorPages {
     async openAddModal(evenTarget) {
         const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-page-modal", {
             presenter: "application-edit-page-modal",
-            edit: false
         }, true)
         if (shouldInvalidate) {
             this.invalidate();
         }
     }
 
-    async openEditModal(evenTarget) {
+    async openEditModal(evenTarget,id) {
         const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-page-modal", {
             presenter: "application-edit-page-modal",
-            edit: true
+            id
         }, true)
         if (shouldInvalidate) {
             this.invalidate();
@@ -141,8 +140,6 @@ export class ApplicationCreatorPages {
     }
 
     async deletePage(evenTarget) {
-        if (shouldInvalidate) {
             this.invalidate();
-        }
     }
 }

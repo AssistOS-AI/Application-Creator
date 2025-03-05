@@ -17,4 +17,7 @@ export class ApplicationCreatorSettings {
     async afterRender(){
 
     }
+    async saveSettings(eventTarget){
+        console.log('saveSettings');
+    }
 }
