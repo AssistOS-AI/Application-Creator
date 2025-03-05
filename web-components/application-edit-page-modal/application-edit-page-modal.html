@@ -4,7 +4,7 @@
             <span>$$modalName</span>
         </div>
         <div class="modal-right-header">
-            <button class="button-secondary" data-local-action="closeModal">X</button>
+            <button class="button-close" data-local-action="closeModal"></button>
         </div>
     </div>
     <div class="modal-content">
@@ -13,6 +13,16 @@
                 <div class="application-form-item">
                     <label for="page-name">Page Name</label>
                     <input type="text" id="page-name" name="page-name" value="$$name">
+                </div>
+                <div class="application-form-item">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="customFile">
+                        <label class="file-input-label" for="customFile">
+                            <span>Icon</span>
+                            <span>No file selected</span>
+                        </label>
+                        <div class="selected-files"></div>
+                    </div>
                 </div>
                 <div class="application-form-item">
                     <label for="widget-name">Widget Name</label>
@@ -26,20 +36,9 @@
                     <label for="data">Data</label>
                     <textarea class="no-resize" id="data" placeholder="">$$data</textarea>
                 </div>
-                <div class="application-form-item">
-                    <div class="file-input-wrapper">
-                        <input type="file" id="customFile">
-                        <label class="file-input-label" for="customFile">
-                            <span>Icon</span>
-                            <span>No file selected</span>
-                        </label>
-                        <div class="selected-files"></div>
-                    </div>
-                </div>
+
             </div>
-            <div class="application-form-footer">
-                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
-            </div>
+
 
         </form>
     </div>
@@ -48,7 +47,9 @@
 
         </div>
         <div class="modal-footer-right">
-
+            <div class="application-form-footer">
+                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
+            </div>
         </div>
     </div>
 </div>

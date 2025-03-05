@@ -1,3 +1,16 @@
+const getWidgets = (id) => {
+    return [
+        "widget1",
+        "widget2",
+        "widget3",
+        "widget4",
+        "widget5",
+        "widget6",
+        "widget7",
+        "widget8",
+    ]
+}
+
 export class ApplicationCreatorSettings {
     constructor(element, invalidate) {
         this.element = element;
@@ -12,6 +25,8 @@ export class ApplicationCreatorSettings {
             this.initialPrompt="";
             this.knowledge="";
             this.chatIndications="";
+            this.chatSize=30;
+            this.widgets=getWidgets().map(widget=>`<option value="${widget}">${widget}</option>`).join('');
     }
 
     async afterRender(){

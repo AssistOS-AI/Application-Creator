@@ -1,8 +1,5 @@
-const actionButton = `<svg width="8" height="30" viewBox="0 0 8 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.0013 16.584C4.87575 16.584 5.58464 15.8751 5.58464 15.0007C5.58464 14.1262 4.87575 13.4173 4.0013 13.4173C3.12685 13.4173 2.41797 14.1262 2.41797 15.0007C2.41797 15.8751 3.12685 16.584 4.0013 16.584Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.0013 5.50065C4.87575 5.50065 5.58464 4.79177 5.58464 3.91732C5.58464 3.04287 4.87575 2.33398 4.0013 2.33398C3.12685 2.33398 2.41797 3.04287 2.41797 3.91732C2.41797 4.79177 3.12685 5.50065 4.0013 5.50065Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.0013 27.6673C4.87575 27.6673 5.58464 26.9584 5.58464 26.084C5.58464 25.2095 4.87575 24.5006 4.0013 24.5006C3.12685 24.5006 2.41797 25.2095 2.41797 26.084C2.41797 26.9584 3.12685 27.6673 4.0013 27.6673Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`
+const actionButton = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="12" cy="6" r="2" fill="#2A92AF"/> <circle cx="12" cy="12" r="2" fill="#2A92AF"/> <circle cx="12" cy="18" r="2" fill="#2A92AF"/> </svg>`
 
 
 const mockMenu = [{id: 1, name: "Home", icon: "Home", widgetName: "Header", description: "Main landing page"}, {
@@ -95,168 +92,6 @@ const mockMenu = [{id: 1, name: "Home", icon: "Home", widgetName: "Header", desc
     icon: "E-books",
     widgetName: "DownloadList",
     description: "Free resources and e-books"
-}, {
-    id: 21,
-    name: "Webinars",
-    icon: "Webinars",
-    widgetName: "VideoList",
-    description: "On-demand training sessions"
-}, {
-    id: 22,
-    name: "Community",
-    icon: "Community",
-    widgetName: "Forum",
-    description: "User discussions and topics"
-}, {
-    id: 23,
-    name: "Courses",
-    icon: "Courses",
-    widgetName: "CourseList",
-    description: "Educational courses and materials"
-}, {
-    id: 24,
-    name: "API Documentation",
-    icon: "API Documentation",
-    widgetName: "DocsViewer",
-    description: "Technical API guides"
-}, {
-    id: 25,
-    name: "Help Center",
-    icon: "Help Center",
-    widgetName: "HelpArticles",
-    description: "Knowledge base articles"
-}, {
-    id: 26,
-    name: "Dashboard",
-    icon: "Dashboard",
-    widgetName: "AdminPanel",
-    description: "User analytics and metrics"
-}, {
-    id: 27,
-    name: "Reports",
-    icon: "Reports",
-    widgetName: "ReportList",
-    description: "Data insights and reports"
-}, {
-    id: 28,
-    name: "Resources",
-    icon: "Resources",
-    widgetName: "ResourceList",
-    description: "Guides and useful materials"
-}, {
-    id: 29,
-    name: "Security",
-    icon: "Security",
-    widgetName: "SecurityInfo",
-    description: "Security policies and best practices"
-}, {id: 30, name: "Login", icon: "Login", widgetName: "AuthForm", description: "User authentication page"}, {
-    id: 31,
-    name: "Sign Up",
-    icon: "Sign Up",
-    widgetName: "AuthForm",
-    description: "Create a new account"
-}, {
-    id: 32,
-    name: "User Profile",
-    icon: "User Profile",
-    widgetName: "ProfilePage",
-    description: "User account settings"
-}, {
-    id: 33,
-    name: "Notifications",
-    icon: "Notifications",
-    widgetName: "NotificationList",
-    description: "User alerts and messages"
-}, {
-    id: 34,
-    name: "Saved Items",
-    icon: "Saved Items",
-    widgetName: "FavoritesList",
-    description: "User saved content"
-}, {
-    id: 35,
-    name: "Activity Log",
-    icon: "Activity Log",
-    widgetName: "ActivityFeed",
-    description: "Recent user activity"
-}, {
-    id: 36,
-    name: "Store",
-    icon: "Store",
-    widgetName: "ProductList",
-    description: "E-commerce product catalog"
-}, {id: 37, name: "Cart", icon: "Cart", widgetName: "CartView", description: "Shopping cart and checkout"}, {
-    id: 38,
-    name: "Wishlist",
-    icon: "Wishlist",
-    widgetName: "WishlistView",
-    description: "Saved products for later"
-}, {
-    id: 39,
-    name: "Orders",
-    icon: "Orders",
-    widgetName: "OrderHistory",
-    description: "Purchase history and details"
-}, {
-    id: 40,
-    name: "Downloads",
-    icon: "Downloads",
-    widgetName: "DownloadCenter",
-    description: "Digital product downloads"
-}, {
-    id: 41,
-    name: "Billing",
-    icon: "Billing",
-    widgetName: "BillingDetails",
-    description: "Payment and invoice details"
-}, {
-    id: 42,
-    name: "Integrations",
-    icon: "Integrations",
-    widgetName: "IntegrationList",
-    description: "Third-party app connections"
-}, {
-    id: 43,
-    name: "Legal",
-    icon: "Legal",
-    widgetName: "LegalDocs",
-    description: "Terms, policies, and agreements"
-}, {
-    id: 44,
-    name: "Sitemap",
-    icon: "Sitemap",
-    widgetName: "SiteMap",
-    description: "Website structure overview"
-}, {
-    id: 45,
-    name: "Maintenance",
-    icon: "Maintenance",
-    widgetName: "MaintenanceMode",
-    description: "Temporary downtime notice"
-}, {
-    id: 46,
-    name: "Changelog",
-    icon: "Changelog",
-    widgetName: "UpdateLog",
-    description: "Recent updates and fixes"
-}, {
-    id: 47,
-    name: "Beta Features",
-    icon: "Beta Features",
-    widgetName: "BetaAccess",
-    description: "Experimental new features"
-}, {
-    id: 48,
-    name: "Affiliates",
-    icon: "Affiliates",
-    widgetName: "AffiliateProgram",
-    description: "Referral program information"
-}, {id: 49, name: "Survey", icon: "Survey", widgetName: "SurveyForm", description: "User feedback collection"}, {
-    id: 50,
-    name: "Announcements",
-    icon: "Announcements",
-    widgetName: "AnnouncementFeed",
-    description: "Latest company updates"
 }];
 const mockPages = [
     {id: 1, name: "Home", widgetName: "Header", description: "Main landing page"},
@@ -315,11 +150,11 @@ const getPageRows = async function () {
     return mockPages;
 }
 const getMenuRows = async function () {
-    const randomNumber = Math.floor(Math.random() * mockMenu.length/5);
-    return mockMenu.slice(0,randomNumber);
+    const randomNumber = Math.floor(Math.random() * mockMenu.length / 5);
+    return mockMenu.slice(0, randomNumber);
 }
 
-const getDropDownMenu= function(id){
+const getDropDownMenu = function (id) {
     return `<div class="action-dropdown" id="dropdown-${id}">
             <a href="#" class="dropdown-item" data-local-action="openEditModal ${id}">
               <svg>...</svg>
@@ -332,6 +167,7 @@ const getDropDownMenu= function(id){
           </div>
 `
 }
+
 export class ApplicationCreatorMenu {
     constructor(element, invalidate) {
         this.element = element;
@@ -345,7 +181,7 @@ export class ApplicationCreatorMenu {
             this.currentPage = mockPages[0].name;
         }
         this.pages = (await getPageRows()).map(pageData => {
-            return `<option value="${pageData.name}" ${this.currentPage===pageData.name?"selected":""} >${pageData.name}</option>`
+            return `<option value="${pageData.name}" ${this.currentPage === pageData.name ? "selected" : ""} >${pageData.name}</option>`
         }).join('');
         this.menuRows = (await getMenuRows(this.currentPage)).map(menuData => {
             return `<tr>
@@ -366,7 +202,8 @@ export class ApplicationCreatorMenu {
             this.invalidate();
         });
     }
-    async viewActions(eventTarget,id){
+
+    async viewActions(eventTarget, id) {
         document.querySelectorAll('.action-dropdown').forEach(d => d.classList.remove('show'));
 
         const dropdown = eventTarget.querySelector('.action-dropdown');
@@ -381,7 +218,8 @@ export class ApplicationCreatorMenu {
 
         document.addEventListener('click', clickHandler);
     }
-    async openEditModal(eventTarget,id){
+
+    async openEditModal(eventTarget, id) {
         const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-menu-modal", {
             presenter: "application-edit-menu-modal",
             id
@@ -390,6 +228,7 @@ export class ApplicationCreatorMenu {
             this.invalidate();
         }
     }
+
     async openAddModal(evenTarget) {
         const {shouldInvalidate} = await assistOS.UI.showModal("application-edit-menu-modal", {
             presenter: "application-edit-menu-modal",
@@ -398,7 +237,8 @@ export class ApplicationCreatorMenu {
             this.invalidate();
         }
     }
-    async deleteMenuItem(eventTarget,id){
+
+    async deleteMenuItem(eventTarget, id) {
         this.invalidate();
     }
 }

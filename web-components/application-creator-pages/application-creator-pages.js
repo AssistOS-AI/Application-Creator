@@ -1,8 +1,7 @@
-const actionButton = `<svg width="8" height="30" viewBox="0 0 8 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.0013 16.584C4.87575 16.584 5.58464 15.8751 5.58464 15.0007C5.58464 14.1262 4.87575 13.4173 4.0013 13.4173C3.12685 13.4173 2.41797 14.1262 2.41797 15.0007C2.41797 15.8751 3.12685 16.584 4.0013 16.584Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.0013 5.50065C4.87575 5.50065 5.58464 4.79177 5.58464 3.91732C5.58464 3.04287 4.87575 2.33398 4.0013 2.33398C3.12685 2.33398 2.41797 3.04287 2.41797 3.91732C2.41797 4.79177 3.12685 5.50065 4.0013 5.50065Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.0013 27.6673C4.87575 27.6673 5.58464 26.9584 5.58464 26.084C5.58464 25.2095 4.87575 24.5006 4.0013 24.5006C3.12685 24.5006 2.41797 25.2095 2.41797 26.084C2.41797 26.9584 3.12685 27.6673 4.0013 27.6673Z" stroke="#2A92AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`
+const actionButton = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="12" cy="6" r="2" fill="#2A92AF"/> <circle cx="12" cy="12" r="2" fill="#2A92AF"/> <circle cx="12" cy="18" r="2" fill="#2A92AF"/> </svg>`
+
+
 
 const getDropDownMenu = function (id) {
     return `<div class="action-dropdown" id="dropdown-${id}">

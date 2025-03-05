@@ -4,7 +4,7 @@
             <span>$$modalName</span>
         </div>
         <div class="modal-right-header">
-            <button class="button-secondary" data-local-action="closeModal">X</button>
+            <button class="button-close" data-local-action="closeModal"></button>
         </div>
     </div>
     <div class="modal-content">
@@ -23,9 +23,6 @@
                     <input type="text" id="widget-name" name="widget-name" value="$$widgetName">
                 </div>
             </div>
-            <div class="application-form-footer">
-                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
-            </div>
 
         </form>
     </div>
@@ -34,6 +31,9 @@
 
         </div>
         <div class="modal-footer-right">
+            <div class="application-form-footer">
+                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
+            </div>
 
         </div>
     </div>
