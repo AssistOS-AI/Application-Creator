@@ -12,21 +12,11 @@
             <div class="application-form-content">
                 <div class="application-form-item">
                     <label for="page-name">Page Name</label>
-                    <input type="text" id="page-name" name="page-name" value="$$name">
+                    <input type="text" id="page-name" name="page-name" value="$$name" $$disabled>
                 </div>
                 <div class="application-form-item">
-                    <div class="file-input-wrapper">
-                        <input type="file" id="customFile">
-                        <label class="file-input-label" for="customFile">
-                            <span>Icon</span>
-                            <span>No file selected</span>
-                        </label>
-                        <div class="selected-files"></div>
-                    </div>
-                </div>
-                <div class="application-form-item">
-                    <label for="widget-name">Widget Name</label>
-                    <input type="text" id="widget-name" name="widget-name" value="$$widgetName">
+                    <label for="widget-name">Widget</label>
+                    $$widgets
                 </div>
                 <div class="application-form-item">
                     <label for=description>Description</label>

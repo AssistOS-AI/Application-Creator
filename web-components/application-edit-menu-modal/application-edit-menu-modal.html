@@ -11,8 +11,19 @@
         <form class="application-form">
             <div class="application-form-content">
                 <div class="application-form-item">
-                    <label for="page-name">Page Name</label>
-                    <input type="text" id="page-name" name="page-name" value="$$pageName" readonly>
+                    <label for="selectedPage">Page</label>
+                    $$pages
+                </div>
+                <div class="application-form-item">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="customFile">
+                        <span>Icon</span>
+                        <label class="file-input-label" for="customFile">
+                            <span></span>
+                            <span>No file selected</span>
+                        </label>
+                        <div class="selected-files"></div>
+                    </div>
                 </div>
                 <div class="application-form-item">
                     <label for="menu-item-name">Menu Item name</label>
@@ -32,7 +43,8 @@
         </div>
         <div class="modal-footer-right">
             <div class="application-form-footer">
-                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton</button>
+                <button type="button" class="application-form-button" data-local-action="$$actionFn">$$actionButton
+                </button>
             </div>
 
         </div>

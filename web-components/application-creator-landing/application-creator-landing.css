@@ -348,6 +348,7 @@
 
 .application-action-button {
     position: relative;
+    display: flex;
     align-items: center;
     color: blue;
     width: fit-content;
@@ -654,6 +655,9 @@
 }
 
 .file-input-wrapper {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
     position: relative;
     width: 100%;
 }

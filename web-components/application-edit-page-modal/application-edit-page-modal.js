@@ -6,6 +6,17 @@ const getPageData = async (id) => {
         data: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     }
 }
+const getWidgets = async () => {
+    return [
+        {name: "Widget Name 1"},
+        {name: "Widget Name 2"},
+        {name: "Widget Name 3"},
+        {name: "Widget Name 4"},
+        {name: "Widget Name 5"},
+        {name: "Widget Name 6"},
+        {name: "Widget Name 7"}
+    ]
+}
 
 export class ApplicationEditPageModal {
     constructor(element, invalidate) {
@@ -21,12 +32,18 @@ export class ApplicationEditPageModal {
         } else {
             await this.handleAddRender();
         }
+        this.widgets = `<select class="application-form-item-select" name="selectedPage" id="selectedPage">${
+            (await getWidgets()).map(widget => {
+                return `<option value="${widget.name}">${widget.name}</option>`
+            }).join('')}</select>`
     }
 
     async handleAddRender() {
         this.modalName = "Add Page";
         this.actionButton = "Add";
         this.actionFn = `addPage`;
+
+        this.disabled = '';
     }
 
     async handleEditRender() {
@@ -38,31 +55,12 @@ export class ApplicationEditPageModal {
         this.modalName = "Edit Page";
         this.actionButton = "Save";
         this.actionFn = `editPage`;
+        this.widgets = `<input type="text" class="application-form-item-input" id="selectedPage" name="selectedPage" value="${pageData.widgetName}">`
+        this.disabled = 'disabled';
     }
 
     async afterRender() {
-        const fileInput = this.element.querySelector('#customFile');
-        const fileLabel = this.element.querySelector('.file-input-label span:last-child');
-        const iconContainer = this.element.querySelector('.file-input-label span:first-child');
-        fileInput.addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-                fileLabel.textContent = file.name;
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    iconContainer.style.width = '200px';
-                    iconContainer.style.height = '200px';
-                    iconContainer.style.transition = 'all 0.3s ease';
-                    iconContainer.innerHTML = ` <img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: contain;"> `;
-                }
-                reader.readAsDataURL(file);
-            } else {
-                fileLabel.textContent = 'No file selected';
-                iconContainer.style.width = '24px';
-                iconContainer.style.height = '24px';
-                iconContainer.innerHTML = '<i class="fas fa-cloud-upload-alt"></i>';
-            }
-        });
+
     }
 
     async closeModal() {
