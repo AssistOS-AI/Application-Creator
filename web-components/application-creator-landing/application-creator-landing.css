@@ -10,14 +10,14 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width: 140px;
+    width: 180px;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 
 #application-page-container {
     display: flex;
-    width: calc(100% - 140px);
+    width: calc(100% - 180px);
 }
 
 .page-container {

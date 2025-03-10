@@ -24,6 +24,7 @@ export class ApplicationEditPageModal {
         this.invalidate = invalidate;
         this.invalidate();
         this.id = this.element.getAttribute('data-id');
+        this.dataStructure = {};
     }
 
     async beforeRender() {
@@ -32,17 +33,15 @@ export class ApplicationEditPageModal {
         } else {
             await this.handleAddRender();
         }
-        this.widgets = `<select class="application-form-item-select" name="selectedPage" id="selectedPage">${
-            (await getWidgets()).map(widget => {
-                return `<option value="${widget.name}">${widget.name}</option>`
-            }).join('')}</select>`
+        this.widgets = `<select class="application-form-item-select" name="selectedPage" id="selectedPage">${(await getWidgets()).map(widget => {
+            return `<option value="${widget.name}">${widget.name}</option>`
+        }).join('')}</select>`
     }
 
     async handleAddRender() {
         this.modalName = "Add Page";
         this.actionButton = "Add";
         this.actionFn = `addPage`;
-
         this.disabled = '';
     }
 
@@ -60,7 +59,110 @@ export class ApplicationEditPageModal {
     }
 
     async afterRender() {
+        this.tabContent = '';
+        this.setupDataTabs();
+    }
 
+
+    setupDataTabs() {
+        const container = this.element.querySelector('.data-tabs-container');
+        if (!container) return;
+
+        try {
+            this.dataStructure = JSON.parse(this.data);
+            // Ensure required tabs exist
+            if (!this.dataStructure["General Settings"]) {
+                this.dataStructure["General Settings"] = { value: '' };
+            }
+            if (!this.dataStructure["Data"]) {
+                this.dataStructure["Data"] = { value: '' };
+            }
+        } catch (e) {
+            this.dataStructure = {
+                "General Settings": { value: '' },
+                "Data": { value: '' }
+            };
+        }
+
+        container.addEventListener('input', (e) => {
+            if (e.target.tagName === 'TEXTAREA') {
+                const activeKey = this.getActiveTabKey();
+                if (activeKey) {
+                    this.dataStructure[activeKey].value = e.target.value;
+                }
+            }
+        });
+
+        this.renderTabs();
+        this.switchTab("General Settings");
+    }
+
+    handleDataTypeChange(e) {
+        if (e.target.classList.contains('data-type-select')) {
+            const activeKey = this.getActiveTabKey();
+            if (activeKey) {
+                this.dataStructure[activeKey].type = e.target.value;
+            }
+        }
+    }
+
+    handleDataContentInput(e) {
+        if (e.target.classList.contains('application-form-item-select') && e.target.tagName === 'TEXTAREA') {
+            const activeKey = this.getActiveTabKey();
+            if (activeKey) {
+                this.dataStructure[activeKey].value = e.target.value;
+            }
+        }
+    }
+
+    getActiveTabKey() {
+        const tabsList = this.element.querySelector('.tabs-list');
+        return tabsList?.querySelector('.tab.active')?.dataset.key;
+    }
+
+    renderTabs() {
+        const tabContent = this.element.querySelector('.tab-content');
+        if (!tabContent) return;
+
+        tabContent.innerHTML = `
+            <textarea class="application-form-item-select no-resize textarea-large" 
+                      placeholder="Enter data..."></textarea>
+        `;
+
+        // Set up tab click handlers
+        this.element.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                this.element.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                this.switchTab(tab.dataset.key);
+            });
+        });
+    }
+
+
+
+    updateTabContent(key) {
+        const tabContent = this.element.querySelector('.tab-content');
+        if (!tabContent) return;
+
+        const typeSelect = tabContent.querySelector('.data-type-select');
+        const contentArea = tabContent.querySelector('textarea');
+
+        if (typeSelect && contentArea) {
+            typeSelect.value = this.dataStructure[key].type;
+            contentArea.value = this.dataStructure[key].value;
+        }
+    }
+
+
+    switchTab(key) {
+        const tabContent = this.element.querySelector('.tab-content');
+        if (!tabContent) return;
+
+        const textarea = tabContent.querySelector('textarea');
+        if (textarea) {
+            textarea.value = this.dataStructure[key]?.value || '';
+        }
     }
 
     async closeModal() {
@@ -68,12 +170,12 @@ export class ApplicationEditPageModal {
     }
 
     async addPage() {
-        console.log('addPage');
+        console.log('addPage', this.dataStructure);
         await this.closeModal();
     }
 
     async editPage() {
-        console.log('editPage');
+        console.log('editPage', this.dataStructure);
         await this.closeModal();
     }
 }

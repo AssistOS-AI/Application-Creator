@@ -26,9 +26,16 @@
                                       placeholder="Chose one of the following phrases: 1. How can I help you? 2. Please tell me about you 3. How is your day?">$$initialPrompt</textarea>
                         </div>
                         <div class="application-form-item">
-                            <label for="knowledge">Knowledge</label>
-                            <textarea class="no-resize" id="knowledge"
-                                      placeholder="You are a helpful assistant, installed on the www.axiologic.net webpage and help intsretd visitors about Axiologic Research a company in Iasi, Romania to know more about the company. Your goal is to convince relevant users to engage with company representatives">$$knowledge</textarea>
+                            <label for="selectedPersonality">Personality</label>
+                            <select class="application-form-item-select" name="selectedPersonality" id="selectedPersonality">
+                                $$personalitiesOptions
+                            </select>
+                        </div>
+                        <div class="application-form-item">
+                            <label for="color">Theme</label>
+                            <select class="application-form-item-select" name="selectedTheme" id="selectedTheme">
+                                $$themes
+                            </select>
                         </div>
                     </div>
                     <div class="form-right">
@@ -38,12 +45,7 @@
                                       placeholder="Be short, precise, suggest the relevant page that could help the user resolve his requests">$$chatIndications</textarea>
                         </div>
                         <div class="application-form-item">
-                            <label for="chatSize">Chat Width</label>
-                            <input class="application-form-item-range" type="range" min="0" max="100" value="$$chatSize"
-                                   id="chatSize">
-                        </div>
-                        <div class="application-form-item">
-                            <label for="color">Color</label>
+                            <label for="color">Primary Color</label>
                             <input type="color" id="color" name="color" value="$$color">
                         </div>
                         <div class="application-form-item">

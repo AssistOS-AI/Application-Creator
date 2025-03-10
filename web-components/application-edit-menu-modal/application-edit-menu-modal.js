@@ -9,7 +9,7 @@ const getPageData = async (id) => {
         name: "Page Name",
         widgetName: "Widget Name",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        data:"Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        data: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     }
 }
 const mockPages = [
@@ -68,42 +68,57 @@ const mockPages = [
 const getPageRows = async function () {
     return mockPages;
 }
-export class ApplicationEditMenuModal{
+
+export class ApplicationEditMenuModal {
     constructor(element, invalidate) {
         this.element = element;
         this.invalidate = invalidate;
         this.invalidate();
-        this.id= this.element.getAttribute('data-id');
+        this.id = this.element.getAttribute('data-id');
     }
-    async beforeRender(){
-        if(this.id){
+
+    async beforeRender() {
+        if (this.id) {
             await this.handleEditRender();
-        }else{
+        } else {
             await this.handleAddRender();
         }
     }
-    async handleAddRender(){
+
+    async handleAddRender() {
         this.modalName = "Add Menu Item";
-        this.actionButton="Add";
-        this.actionFn=`addMenuItem`;
-        this.pages =     `<select class="application-form-item-select" name="selectedPage" id="selectedPage">${
+        this.actionButton = "Add";
+        this.actionFn = `addMenuItem`;
+        this.pages = `<select class="application-form-item-select" name="selectedPage" id="selectedPage">${
             (await getPageRows()).map(pageData => {
                 return `<option value="${pageData.name}">${pageData.name}</option>`
             }).join('')}</select>`
     }
-    async handleEditRender(){
-        this.modalName="Edit Menu Item";
-        this.actionButton="Save";
-        this.actionFn=`editMenuItem`;
-        this.pages= `<input type="text" class="application-form-item-input" id="selectedPage" name="selectedPage" value="Page Name" disabled>`
+
+    async handleEditRender() {
+        this.modalName = "Edit Menu Item";
+        this.actionButton = "Save";
+        this.actionFn = `editMenuItem`;
+        this.pages = `<input type="text" class="application-form-item-input" id="selectedPage" name="selectedPage" value="Page Name" disabled>`
         const menuItemData = await getMenuItemData(this.id);
-        this.name= menuItemData.name;
+        this.name = menuItemData.name;
         this.widgetName = menuItemData.widgetName;
     }
 
     async afterRender() {
         const fileInput = this.element.querySelector('#customFile');
         const fileLabel = this.element.querySelector('.file-input-label span:last-child');
+        const selectedPageSelectElement = this.element.querySelector('#selectedPage');
+        const nameInput = this.element.querySelector('#display-name');
+        this.lastSelectedPage = selectedPageSelectElement.value;
+        nameInput.value=this.lastSelectedPage;
+        selectedPageSelectElement.addEventListener('change', (e) => {
+            if (nameInput.value === '' || nameInput.value === this.lastSelectedPage) {
+                nameInput.value = e.target.value;
+                this.lastSelectedPage = e.target.value;
+            }
+        })
+
         const iconContainer = this.element.querySelector('.file-input-label span:first-child');
         fileInput.addEventListener('change', function (e) {
             const file = e.target.files[0];
@@ -125,14 +140,17 @@ export class ApplicationEditMenuModal{
             }
         });
     }
-    async closeModal(){
-        await assistOS.UI.closeModal(this.element,{shouldInvalidate:this.shouldInvalidate});
+
+    async closeModal() {
+        await assistOS.UI.closeModal(this.element, {shouldInvalidate: this.shouldInvalidate});
     }
-    async addMenuItem(){
+
+    async addMenuItem() {
         console.log('addMenuItem');
         await this.closeModal();
     }
-    async editMenuItem(){
+
+    async editMenuItem() {
         console.log('editMenuItem');
         await this.closeModal();
     }
