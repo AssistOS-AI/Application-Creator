@@ -9,7 +9,7 @@
     {
       "name": "application-creator-landing",
       "presenterClassName": "ApplicationCreatorLanding",
-      "type": "page"
+      "type": "pages"
     },
     {
       "name": "application-creator-sidebar",
